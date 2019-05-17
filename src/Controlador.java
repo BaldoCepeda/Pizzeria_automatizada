@@ -1,8 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
-
 public class Controlador implements ActionListener{
 	
 	Menu menu;
@@ -21,8 +19,14 @@ public class Controlador implements ActionListener{
 		menu.setBounds(100, 100, 791, 526);
 	}
 	
-	public void actionPerformed(ActionEvent arg0) {
-		modelo.iniciarModelo(menu);
+	public synchronized void actionPerformed(ActionEvent e) {
+		if(menu.btnContinue.getText()=="Iniciar") {
+			modelo.start();
+		}else {
+			synchronized(modelo){
+				notifyAll();
+			}
+		}
 	}
 
 }

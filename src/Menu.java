@@ -6,7 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.Insets;
+
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
 
 public class Menu extends JFrame {
 
@@ -25,6 +29,7 @@ public class Menu extends JFrame {
 	JLabel lblStatus;
 	JLabel lblStatus_1;
 	JTextField txtpendped;
+	JTextArea txtrH;
 
 	/**
 	 * Create the frame. 
@@ -159,17 +164,23 @@ public class Menu extends JFrame {
 		contentPane.add(lblMinutos_3);
 		
 		lblStatus = new JLabel("Status");
+		lblStatus.setHorizontalAlignment(SwingConstants.CENTER);
 		lblStatus.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblStatus.setBounds(134, 68, 46, 14);
+		lblStatus.setBounds(27, 68, 323, 14);
 		contentPane.add(lblStatus);
 		
-		JTextArea txtrH = new JTextArea();
+		txtrH = new JTextArea();
 		txtrH.setWrapStyleWord(true);
 		txtrH.setFont(new Font("Monospaced", Font.PLAIN, 11));
 		txtrH.setLineWrap(true);
-		txtrH.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula risus accumsan, placerat tellus ac, cursus leo. Suspendisse risus nunc, tempor quis bibendum id, bibendum ac leo. Nunc lectus orci, pellentesque vitae porttitor id, ultrices non ipsum. Cras a ultricies nunc. Aenean imperdiet ac ipsum at iaculis. Nulla convallis justo odio, ac volutpat arcu aliquet vitae. Nam iaculis massa sed libero tristique finibus. Aliquam hendrerit, sem non ultrices pulvinar, velit dui feugiat orci, id porta tellus dui vitae ante. Cras ut pharetra nisi. Donec eget tortor ut sapien maximus elementum vitae id augue.\nVestibulum in lorem non diam ornare auctor. Vivamus id magna dui. Curabitur mattis commodo mauris vel maximus. Fusce vel sem tempus, dictum leo nec, aliquet quam. Maecenas rhoncus arcu ac nisi pulvinar, ut pharetra purus tempus. Nam efficitur leo lorem, eget semper ipsum maximus ut. Fusce condimentum lectus felis, vehicula aliquam mi viverra eget. Integer vel mattis sapien. Duis eu enim tristique, tempor odio sodales, faucibus tellus.\nVestibulum sollicitudin, arcu vel rutrum laoreet, quam urna cursus ipsum, at lobortis turpis justo vitae ipsum. In euismod gravida sodales. Nullam maximus, nulla id scelerisque consectetur, lacus enim convallis felis, dictum ultrices urna ligula eget neque. Etiam volutpat sem a tortor pulvinar mollis. In non eros at arcu aliquet auctor et bibendum magna. Maecenas aliquam nisi nec congue malesuada. Fusce tincidunt enim ac eros iaculis, et aliquet nibh semper. Praesent aliquam quis eros vitae porta. Phasellus ut pellentesque enim. Curabitur congue venenatis sem sed aliquet. Donec placerat felis sit amet erat ultricies, sed consequat erat vehicula. Morbi eget mauris in risus laoreet convallis. In hac habitasse platea dictumst. Cras et erat non magna fermentum pulvinar ut aliquet magna. Sed tortor nisl, vestibulum vitae tristique vitae, congue et diam. Etiam facilisis dictum volutpat.");
-		txtrH.setBounds(385, 43, 351, 402);
-		contentPane.add(txtrH);
+		txtrH.setMargin(new Insets(10,10,10,10));
+		//txtrH.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula risus accumsan, placerat tellus ac, cursus leo. Suspendisse risus nunc, tempor quis bibendum id, bibendum ac leo. Nunc lectus orci, pellentesque vitae porttitor id, ultrices non ipsum. Cras a ultricies nunc. Aenean imperdiet ac ipsum at iaculis. Nulla convallis justo odio, ac volutpat arcu aliquet vitae. Nam iaculis massa sed libero tristique finibus. Aliquam hendrerit, sem non ultrices pulvinar, velit dui feugiat orci, id porta tellus dui vitae ante. Cras ut pharetra nisi. Donec eget tortor ut sapien maximus elementum vitae id augue.\nVestibulum in lorem non diam ornare auctor. Vivamus id magna dui. Curabitur mattis commodo mauris vel maximus. Fusce vel sem tempus, dictum leo nec, aliquet quam. Maecenas rhoncus arcu ac nisi pulvinar, ut pharetra purus tempus. Nam efficitur leo lorem, eget semper ipsum maximus ut. Fusce condimentum lectus felis, vehicula aliquam mi viverra eget. Integer vel mattis sapien. Duis eu enim tristique, tempor odio sodales, faucibus tellus.\nVestibulum sollicitudin, arcu vel rutrum laoreet, quam urna cursus ipsum, at lobortis turpis justo vitae ipsum. In euismod gravida sodales. Nullam maximus, nulla id scelerisque consectetur, lacus enim convallis felis, dictum ultrices urna ligula eget neque. Etiam volutpat sem a tortor pulvinar mollis. In non eros at arcu aliquet auctor et bibendum magna. Maecenas aliquam nisi nec congue malesuada. Fusce tincidunt enim ac eros iaculis, et aliquet nibh semper. Praesent aliquam quis eros vitae porta. Phasellus ut pellentesque enim. Curabitur congue venenatis sem sed aliquet. Donec placerat felis sit amet erat ultricies, sed consequat erat vehicula. Morbi eget mauris in risus laoreet convallis. In hac habitasse platea dictumst. Cras et erat non magna fermentum pulvinar ut aliquet magna. Sed tortor nisl, vestibulum vitae tristique vitae, congue et diam. Etiam facilisis dictum volutpat.");
+		txtrH.setBounds(350, 43, 390, 402);
+		//contentPane.add(txtrH);
+		
+		JScrollPane scrollPane = new JScrollPane(txtrH);
+		scrollPane.setBounds(350, 43, 390, 402);
+		contentPane.add(scrollPane);
 		
 		JLabel lblIngresaLaDuracion = new JLabel("Ingresa la duracion de la ejecuci\u00F3n:");
 		lblIngresaLaDuracion.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -184,11 +195,11 @@ public class Menu extends JFrame {
 		execTime.setColumns(10);
 		
 		btnContinue = new JButton("Iniciar");
-		btnContinue.setBounds(52, 453, 89, 23);
+		btnContinue.setBounds(56, 451, 89, 23);
 		contentPane.add(btnContinue);
 		
-		btnStop = new JButton("Detener");
-		btnStop.setBounds(175, 451, 89, 23);
+		btnStop = new JButton("Continuar");
+		btnStop.setBounds(166, 451, 116, 23);
 		contentPane.add(btnStop);
 		
 		JLabel lblAlgunTexto = new JLabel("En cola de preparacion hay");
@@ -208,8 +219,9 @@ public class Menu extends JFrame {
 		contentPane.add(lblPedidos_1);
 		
 		lblStatus_1 = new JLabel("Status 2");
+		lblStatus_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblStatus_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblStatus_1.setBounds(126, 365, 46, 14);
+		lblStatus_1.setBounds(27, 365, 323, 14);
 		contentPane.add(lblStatus_1);
 		
 		//JLabel lblNewLabel = new JLabel(new ImageIcon(Menu.class.getResource("/img/user.jpg")));
